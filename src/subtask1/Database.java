@@ -9,8 +9,10 @@ class Database {
 
     public static Database getInstance() {
         if (Database.instance == null) {
-            //acquireThreadLock();
+            acquireThreadLock();
+            if (Database.instance == null) {
             Database.instance = new Database();
+            }
         }
         return Database.instance;
     }
